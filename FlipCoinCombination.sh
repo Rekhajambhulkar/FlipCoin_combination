@@ -36,10 +36,8 @@ Percentage()
 		echo "Percentage of $keyCount is: ${Dict[$keyCount]}"
 	done
 }
-#call the function
-Percentage
 
-Sorting()
+sorting()
 {
 	for val in ${!Dict[@]}
 	do
@@ -48,8 +46,6 @@ Sorting()
 
 sort -rm -k3
 }
-sorting
-
 
 Triplet()
 {
@@ -64,7 +60,7 @@ do
 	for((count2=1;count2<=$option;count2++))
 	do
 		result="$(Flip)"
-		if [ (($result == $flip ))
+		if [ $result == $flip ]
 		then
 			coin=H
 			((head++))
@@ -80,3 +76,20 @@ coin=""
 done
 
 
+echo "Heads count:" $head
+echo "Tails count:" $tail
+
+echo ${!Dict[@]}
+echo ${Dict[@]}
+
+echo "$(Percentage $range)"
+echo "$sorting"
+echo "Winner is:" $(sorting | head -1)"
+}
+
+if (($select > 0 && $select < 4))
+then
+	echo "$(triplet $range $select)"
+else
+	echo "wrong choice"
+fi
