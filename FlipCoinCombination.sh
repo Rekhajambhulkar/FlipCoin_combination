@@ -7,7 +7,8 @@ echo "Welcome in FlipCoinCombination"
 
 read -p "Enter the option
 	1.Singlet
-	2.Doublet " select
+	2.Doublet 
+	3.Triplet " select
 
 #Using RANDOM Find head or tail
 Flip()
@@ -48,3 +49,34 @@ Sorting()
 sort -rm -k3
 }
 sorting
+
+
+Triplet()
+{
+flip=0
+head=0
+tail=0
+range=$1
+option=$2
+
+for((count1=1;count1<=$range;count1++))
+do
+	for((count2=1;count2<=$option;count2++))
+	do
+		result="$(Flip)"
+		if [ (($result == $flip ))
+		then
+			coin=H
+			((head++))
+		else
+			((tails++))
+			coin=T
+		fi
+	done
+
+((Dict[$coin]""))
+coin=""
+
+done
+
+
