@@ -6,7 +6,8 @@ declare -A Dict
 echo "Welcome in FlipCoinCombination"
 
 read -p "Enter the option
-	1.Singlet " select
+	1.Singlet
+	2.Doublet " select
 
 #Using RANDOM Find head or tail
 Flip()
@@ -37,4 +38,13 @@ Percentage()
 #call the function
 Percentage
 
+Sorting()
+{
+	for val in ${!Dict[@]}
+	do
+		echo $val '-' ${Dict[$val]}
+	done
 
+sort -rm -k3
+}
+sorting
